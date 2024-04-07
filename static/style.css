@@ -1,0 +1,521 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track, ::-webkit-scrollbar-corner {
+    background-color: none;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.5);
+    border-radius: 30px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    border-radius: 30px;
+  }
+  ::-webkit-scrollbar-thumb:active {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    border-radius: 30px;
+  } 
+
+
+
+body{
+    min-height: 100vh;
+    width: 100vw;
+    position: relative;
+    background-color: rgb(41, 41, 43);;
+}
+.bg{
+    position: fixed;
+    bottom: 0;
+    left: -50px;
+    height: 85vh;
+    opacity: 70%;
+    z-index: -1000;
+}
+.sortNameHead{
+    /* display: inline-block; */
+    font-size: 40px;
+    text-align: center;
+    width: 100vw;
+    padding: 10px;
+    font-weight: 800;
+    /* margin-top: 60px; */
+    animation: lights 5s 750ms linear infinite;
+}
+
+
+@keyframes lights {
+    0% {
+      color: hsl(230, 40%, 80%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.4),
+        0 0 0.125em hsla(320, 100%, 60%, 0.5),
+        -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+        1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+    
+    30% { 
+      color: hsl(230, 80%, 90%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.7),
+        0 0 0.125em hsla(320, 100%, 60%, 0.7),
+        -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.4),
+        0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.6);
+    }
+    
+    40% { 
+      color: hsl(230, 100%, 95%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.7),
+        0 0 0.125em hsla(320, 100%, 90%, 0.7),
+        -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.4),
+        0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.6);
+    }
+    
+    70% {
+      color: hsl(230, 80%, 90%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.7),
+        0 0 0.125em hsla(320, 100%, 60%, 0.7),
+        0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.4),
+        -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.6);
+    }
+    
+    100% {
+      color: hsl(230, 40%, 80%);
+      text-shadow:
+        0 0 1em hsla(320, 100%, 50%, 0.4),
+        0 0 0.125em hsla(320, 100%, 60%, 0.5),
+        1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+        -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+    }
+    
+  }
+
+
+
+  /* ChatBot png */
+  /* animate-ping absolute inline-flex h-20 w-20 rounded-full bg-sky-400 opacity-75 bottom-12 right-6 */
+  /* .chatbot-container {
+    position: relative;
+} */
+
+.animate-ping {
+    position: fixed;
+    display: inline-flex;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    background-color: #87ceeb; /* Use the desired background color */
+    opacity: 0.5;
+    bottom: 20px;
+    right: 30px;
+    animation: pulse 1.5s infinite; /* Add animation keyframes for the pulse effect */
+    animation-delay: 0.7s;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+}
+
+.animate-bounce {
+    position: fixed;
+    display: inline-flex;
+    height: 150px;
+    width: 150px;
+    bottom: 12px;
+    right: 6px;
+    border-radius: 50%;
+    /* height: 32px; */
+    animation: bounce 1.5s infinite; /* Add animation keyframes for the bounce effect */
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-40px);
+    }
+    60% {
+        transform: translateY(-20px);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.options{
+    width: 250px;
+    position: fixed;
+    bottom: 150px;
+    right: 30px;
+    transition: all 0.2s ease-in;
+    display: none;
+    
+}
+
+.sign {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* width: 50%; */
+    /* height: 50%; */
+    background-image: radial-gradient( ellipse 50% 35% at 50% 50%, #6b1839, transparent );
+    transform: translate(-50%, -50%);
+    letter-spacing: 2;
+    left: 80px;
+    /* top: 50%; */
+    /* font-family: "Clip"; */
+    text-transform: uppercase;
+    font-size: 19px;
+    color: #ffe6ff;
+    text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd, -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd, 0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+    animation: shine 2s forwards, flicker 3s infinite;
+  }
+  
+  @keyframes blink {
+    0%,
+    22%,
+    36%,
+    75% {
+      color: #ffe6ff;
+      text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
+        -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
+        0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+    }
+    28%,
+    33% {
+      color: #ff65bd;
+      text-shadow: none;
+    }
+    82%,
+    97% {
+      color: #ff2483;
+      text-shadow: none;
+    }
+  }
+  
+  .flicker {
+    animation: shine 2s forwards, blink 3s 2s infinite;
+  }
+  
+  .fast-flicker {
+    animation: shine 2s forwards, blink 10s 1s infinite;
+  }
+  
+  @keyframes shine {
+    0% {
+      color: #6b1839;
+      text-shadow: none;
+    }
+    100% {
+      color: #ffe6ff;
+      text-shadow: 0 0 0.6rem #ffe6ff, 0 0 1.5rem #ff65bd,
+        -0.2rem 0.1rem 1rem #ff65bd, 0.2rem 0.1rem 1rem #ff65bd,
+        0 -0.5rem 2rem #ff2483, 0 0.5rem 3rem #ff2483;
+    }
+  }
+  
+  @keyframes flicker {
+    from {
+      opacity: 1;
+    }
+  
+    4% {
+      opacity: 0.9;
+    }
+  
+    6% {
+      opacity: 0.85;
+    }
+  
+    8% {
+      opacity: 0.95;
+    }
+  
+    10% {
+      opacity: 0.9;
+    }
+  
+    11% {
+      opacity: 0.922;
+    }
+  
+    12% {
+      opacity: 0.9;
+    }
+  
+    14% {
+      opacity: 0.95;
+    }
+  
+    16% {
+      opacity: 0.98;
+    }
+  
+    17% {
+      opacity: 0.9;
+    }
+  
+    19% {
+      opacity: 0.93;
+    }
+  
+    20% {
+      opacity: 0.99;
+    }
+  
+    24% {
+      opacity: 1;
+    }
+  
+    26% {
+      opacity: 0.94;
+    }
+  
+    28% {
+      opacity: 0.98;
+    }
+  
+    37% {
+      opacity: 0.93;
+    }
+  
+    38% {
+      opacity: 0.5;
+    }
+  
+    39% {
+      opacity: 0.96;
+    }
+  
+    42% {
+      opacity: 1;
+    }
+  
+    44% {
+      opacity: 0.97;
+    }
+  
+    46% {
+      opacity: 0.94;
+    }
+  
+    56% {
+      opacity: 0.9;
+    }
+  
+    58% {
+      opacity: 0.9;
+    }
+  
+    60% {
+      opacity: 0.99;
+    }
+  
+    68% {
+      opacity: 1;
+    }
+  
+    70% {
+      opacity: 0.9;
+    }
+  
+    72% {
+      opacity: 0.95;
+    }
+  
+    93% {
+      opacity: 0.93;
+    }
+  
+    95% {
+      opacity: 0.95;
+    }
+  
+    97% {
+      opacity: 0.93;
+    }
+  
+    to {
+      opacity: 1;
+    }
+  }
+
+
+.sortBtn {
+    margin: 3px 0;
+    --green: #1BFD9C;
+    font-size: 15px;
+    padding: 5px 1px;
+    letter-spacing: 0.06em;
+    position: relative;
+    font-family: inherit;
+    border-radius: 0.6em;
+    overflow: hidden;
+    transition: all 0.3s;
+    line-height: 1.4em;
+    border: 2px solid var(--green);
+    background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%,transparent 60% , rgba(27, 253, 156, 0.1) 100%);
+    color: var(--green);
+    box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+    width: 100%;
+  }
+  
+  .sortBtn:hover {
+    color: #82ffc9;
+    cursor: pointer;
+    box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+  }
+  
+  .sortBtn:active{
+    background-color: rgba(27, 253, 156, 0.6);
+  }
+  
+  .sortBtn:before {
+    content: "";
+    position: absolute;
+    left: -4em;
+    width: 4em;
+    height: 100%;
+    top: 0;
+    transition: transform .4s ease-in-out;
+    background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%,rgba(27, 253, 156, 0.1) 60% , transparent 100%);
+  }
+  
+  .sortBtn:hover:before {
+    transform: translateX(15em);
+  }
+
+  .options:hover,.animate-bounce:hover+.options,.animate-ping+.options{
+    display: block;
+  }
+
+
+
+
+
+
+
+
+
+  /* ChatBot */
+  .btns {
+    --bg: none;
+      border: 2px solid cyan;
+      --hover-bg: #ff90e8;
+      --hover-text: #000;
+      color: cyan;
+      border: 3px solid cyan;
+      border-radius: 4px;
+      padding: 3px;
+      background: var(--bg);
+      transition: 0.2s;
+  }
+  
+  .btns:hover {
+    color: rgba(0, 0, 0,0.5);
+    transform: translate(-0.25rem,-0.25rem);
+    background: rgba(0,255,255,0.8);
+    box-shadow: 0.25rem 0.25rem blue;
+  }
+  
+  .btns:active {
+    transform: translate(0);
+    box-shadow: none;
+  }
+
+  #user-input {
+    background-color: transparent;
+    max-width: 190px;
+    /* height: 40px; */
+    padding: 5px;
+    /* text-align: center; */
+    border: 2px solid cyan;
+    border-radius: 5px;
+    color: cyan;
+    box-shadow: 3px 3px 2px rgb(249, 255, 85);
+  }
+  
+  #user-input:focus {
+    color: rgb(217, 255, 0);
+    background: linear-gradient(45deg, black, transparent);
+    outline-color: rgb(217, 255, 0);
+    /* box-shadow: -3px -3px 15px rgb(217, 255, 0); */
+    transition: .1s;
+    transition-property: box-shadow;
+  }
+
+  .chat-container{
+    width: 400px;
+    max-width: 90vw;
+    margin: auto;
+    position: relative;
+    bottom: 0;
+    height: 85vh;
+  }
+  .chat-box{
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 0;
+    position: absolute;
+    overflow: scroll;
+    bottom: 50px;
+    width: 100%;
+    max-height: 75vh;
+    padding: 0 5px;
+  }
+  /* .chat-box div{
+    margin: 2px 0;
+  } */
+  .bot-message{
+    padding-right: 20%;
+    color: cyan;
+    /* text-shadow: 2px 2px 4px cyan, 2px 2px 7px #000; */
+    margin-bottom: 20px;
+    border-bottom: 1px solid white;
+  }
+  .user-message{
+    text-align: right;
+    padding-left: 20%;
+    color: rgb(229, 227, 239);
+    margin-top: 20px;
+    /* text-shadow: 2px 2px 4px rgb(229, 227, 239), 2px 2px 7px #000; */
+  }
+
+  .user-control{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  .user-control-btns .btns{
+    margin: 0 2px;
+  }
